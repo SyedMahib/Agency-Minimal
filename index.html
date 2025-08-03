@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agency Minimal</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b740202a2d.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <style>
+        .font-playfair-display {
+            font-family: "Playfair Display", serif;
+        }
+
+        .font-dm-sans {
+            font-family: "DM Sans", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="font-dm-sans">
+    <header class="bg-[#F6F8FB]">
+        <!-- Navbar -->
+        <nav class="mb-[100px]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16 items-center">
+
+                    <!-- Logo -->
+                    <div class="flex items-center">
+                        <img src="./Assets/logo.png" alt="Logo" class="h-8 w-auto mr-2">
+                    </div>
+
+                    <!-- Desktop Nav Links -->
+                    <div class="hidden md:flex gap-8 items-center">
+                        <a href="#" class="hover:text-purple-600">Home</a>
+
+                        <!-- Advertise Dropdown -->
+                        <div class="relative group">
+                            <button class="flex items-center gap-1">
+                                Advertise
+                                <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div
+                                class="absolute left-0 mt-2 w-40 bg-white rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 invisible group-hover:visible">
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Sub Link 1</a>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Sub Link 2</a>
+                            </div>
+                        </div>
+
+                        <!-- Support Dropdown -->
+                        <div class="relative group">
+                            <button class="flex items-center gap-1">
+                                Supports
+                                <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div
+                                class="absolute left-0 mt-2 w-40 bg-white rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 invisible group-hover:visible">
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Help</a>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">FAQ</a>
+                            </div>
+                        </div>
+
+                        <a href="#" class="hover:text-purple-600">Contact</a>
+                        <a href="#" class="hover:text-purple-600">About Us</a>
+                    </div>
+
+                    <!-- Register Now Button -->
+                    <div class="hidden md:block">
+                        <a href="#"
+                            class="border border-purple-600 text-purple-600 px-4 py-2 rounded hover:bg-purple-600 hover:text-white transition">Register
+                            Now</a>
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button id="menu-toggle" class="focus:outline-none">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2">
+                <a href="#" class="block">Home</a>
+                <div class="space-y-1">
+                    <button onclick="toggleSub('adv')" class="w-full flex justify-between items-center">
+                        Advertise
+                        <svg id="icon-adv" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="submenu-adv" class="hidden ml-4">
+                        <a href="#" class="block">Sub Link 1</a>
+                        <a href="#" class="block">Sub Link 2</a>
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <button onclick="toggleSub('sup')" class="w-full flex justify-between items-center">
+                        Supports
+                        <svg id="icon-sup" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="submenu-sup" class="hidden ml-4">
+                        <a href="#" class="block">Help</a>
+                        <a href="#" class="block">FAQ</a>
+                    </div>
+                </div>
+
+                <a href="#" class="block">Contact</a>
+                <a href="#" class="block">About Us</a>
+                <a href="#"
+                    class="block text-purple-600 border border-purple-600 text-center py-2 rounded mt-2">Register
+                    Now</a>
+            </div>
+        </nav>
+
+       <!-- Banner Section -->
+<div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 max-w-7xl px-4 mx-auto py-12">
+  <!-- Text Section -->
+  <div class="text-center lg:text-left">
+    <h1 class="text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 leading-tight lg:leading-[80px] lg:w-[550px] mx-auto lg:mx-0">
+      Great software is built with amazing developers
+    </h1>
+    <p class="text-base sm:text-lg font-normal mb-6 max-w-md mx-auto lg:mx-0">
+      We help build and manage a team of world-class developers to bring your vision to life
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center gap-4 mb-10 max-w-md mx-auto lg:mx-0">
+      <input
+        class="bg-white py-3.5 pl-6 shadow-md rounded-lg w-full"
+        type="text"
+        placeholder="Subscribe newsletter"
+      />
+      <a
+        class="py-3 px-10 text-xl font-bold text-white rounded bg-[#8D448B] whitespace-nowrap"
+        href="#"
+      >
+        Subscribe
+      </a>
+    </div>
+
+    <div
+      class="flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 text-gray-400 text-sm"
+    >
+      <span class="text-gray-400 text-lg">Sponsored by:</span>
+      <div class="flex items-center space-x-6">
+        <img src="/Assets/Paypal.png" alt="Paypal" class="w-[80px] sm:w-[100px]" />
+        <img src="/Assets/Google.png" alt="Google" class="w-[80px] sm:w-[100px]" />
+        <img src="/Assets/Dropbox.png" alt="Dropbox" class="w-[80px] sm:w-[100px]" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Section -->
+  <div class="w-full max-w-md sm:max-w-lg lg:max-w-none">
+    <img src="./Assets/Banner_Image.png" alt="Banner" class="w-full h-auto" />
+  </div>
+</div>
+
+    </header>
+    <main>
+        <!-- Quality Features -->
+        <section class="max-w-7xl mx-auto mt-[100px] mb-[130px]">
+            <div class="text-center mb-[80px]">
+                <p class="text-lg font-bold text-[#8D448B] mb-5">Quality Features</p>
+                <h2 class="text-3xl font-bold">Meet exciting feature of app</h2>
+            </div>
+            <!-- Features -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[60px]">
+                <!-- Feature-1 -->
+                <div class="text-center">
+                    <img class="mx-auto mb-5" src="./Assets/Feature-4.png" alt="Feature-4">
+                    <h1 class="text-lg font-bold mb-5">Unlimited Customization</h1>
+                    <p class="text-[15px] text-[#343D48]">Get your blood tests delivered at home collect a sample from
+                        the your blood tests.</p>
+                </div>
+                <!-- Feature-2 -->
+                <div class="text-center">
+                    <img class="mx-auto mb-5" src="./Assets/Feature-1.png" alt="Feature-4">
+                    <h1 class="text-lg font-bold mb-5">Vector shape & resizable</h1>
+                    <p class="text-[15px] text-[#343D48]">Get your blood tests delivered at home collect a sample from
+                        the your blood tests.</p>
+                </div>
+                <!-- Feature-3 -->
+                <div class="text-center">
+                    <img class="mx-auto mb-5" src="./Assets/Feature-2.png" alt="Feature-4">
+                    <h1 class="text-lg font-bold mb-5">Editing freedom</h1>
+                    <p class="text-[15px] text-[#343D48]">Get your blood tests delivered at home collect a sample from
+                        the your blood tests.</p>
+                </div>
+                <!-- Feature-4 -->
+                <div class="text-center">
+                    <img class="mx-auto mb-5" src="./Assets/Feature-3.png" alt="Feature-4">
+                    <h1 class="text-lg font-bold mb-5">Best Award history</h1>
+                    <p class="text-[15px] text-[#343D48]">Get your blood tests delivered at home collect a sample from
+                        the your blood tests.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Boosting Section -->
+        <section class="max-w-7xl mx-auto mb-[160px]">
+            <div class="grid grid-cols-2 gap-[110px] items-center">
+                <!-- Image Section -->
+                <div>
+                    <img src="./Assets/Goal.png" alt="Goal">
+                </div>
+                <!-- Text Section -->
+                <div>
+                    <h1 class="text-5xl font-bold leading-[60px] text-[#0F2137] mb-[22px]">Boost your agencies
+                        by choosing Ninja
+                        Developers
+                    </h1>
+                    <p class="text-lg text-[#02073E] mb-[30px] w-[450px]">Create custom landing pages with Shades that
+                        convert
+                        more visitors than any website, no coding
+                        required.
+                    </p>
+                    <div class="space-y-6 mb-5">
+                        <div class="flex items-center gap-4">
+                            <i class="fa-solid fa-lg fa-circle-check" style="color: #C7D0DC;"></i>
+                            <p class="text-lg text-[#02073E]">Unlimited design possibility</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="fa-solid fa-lg fa-circle-check" style="color: #C7D0DC;"></i>
+                            <p class="text-lg text-[#02073E]">Completely responsive features</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="fa-solid fa-lg fa-circle-check" style="color: #C7D0DC;"></i>
+                            <p class="text-lg text-[#02073E]">Easy to customize plugins</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="" class="text-[16px] font-bold text-[#8D448B]">Learn more</a>
+                        <i class="fa-solid fa-chevron-right" style="color: #8D448B;"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-[50px]">
+                <h1 class="text-5xl font-bold text-[#0F2137] leading-[60px] mb-6">Leading companies trust us to develop
+                    software</h1>
+                <p class="text-lg text-[#343D48] mb-6">We believe it’s important for everyone to have access to software
+                    especially when it comes to digital learning be navigate.
+                </p>
+                <div>
+                    <a href="" class="text-[16px] font-bold text-[#8D448B]">Explore Details</a>
+                    <i class="fa-solid fa-chevron-right" style="color: #8D448B;"></i>
+                </div>
+            </div>
+            <div class="max-w-2xl mx-auto">
+                <img src="./Assets/video.png" alt="">
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="max-w-7xl mx-auto text-center space-y-8 my-[150px]">
+            <!-- Headings -->
+            <div class="mb-[58px]">
+                <p class="text-sm text-[#8D448B] font-semibold uppercase">Customer Comments</p>
+                <h2 class="text-2xl md:text-3xl font-semibold text-gray-900">Why customers love us</h2>
+            </div>
+
+            <!-- Testimonial Text -->
+            <div id="testimonialText"
+                class="font-playfair-display max-w-2xl mx-auto text-xl md:text-4xl text-[#0F2137] mb-8">
+                They are doing amazing job with hundred percent customer satisfaction, Love their work and would like to
+                work with them again
+            </div>
+
+            <!-- Reviewer Selection -->
+            <div class="flex justify-center gap-8 pt-4 flex-wrap">
+                <!-- Pierre -->
+                <div class="group cursor-pointer border p-5" onclick="setActiveReview(0)">
+                    <div class="h-1 w-full mb-3 transition-all rounded-full" id="indicator-0"></div>
+                    <div class="flex justify-center gap-3 items-center">
+                        <img src="./Assets/Pierre.png" alt="Pierre" class="w-14 h-14 rounded-full object-cover" />
+                        <div>
+                            <p class="mt-2 font-semibold text-sm text-gray-900">Pierre Hackett</p>
+                            <p class="text-xs text-gray-500">VP of Engineering</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Natalia -->
+                <div class="group cursor-pointer border p-5" onclick="setActiveReview(1)">
+                    <div class="h-1 w-auto mb-3 transition-all rounded-full" id="indicator-1"></div>
+                    <div class="flex justify-center gap-3 items-center">
+                        <img src="./Assets/Natalia.png" alt="Natalia" class="w-14 h-14 rounded-full object-cover" />
+                        <div>
+                            <p class="mt-2 font-semibold text-sm text-gray-900">Natalia Sanz</p>
+                            <p class="text-xs text-gray-500">Head of Technology</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ece -->
+                <div class="group cursor-pointer border p-5" onclick="setActiveReview(2)">
+                    <div class="h-1 w-auto mb-3 transition-all rounded-full" id="indicator-2"></div>
+                    <div class="flex justify-center gap-3 items-center">
+                        <img src="./Assets/Ece.png" alt="Ece" class="w-14 h-14 rounded-full object-cover" />
+                        <div>
+                            <p class="mt-2 font-semibold text-sm text-gray-900">Ece Akman</p>
+                            <p class="text-xs text-gray-500">Senior Marketer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Support -->
+        <section class="max-w-7xl mx-auto my-[200px]">
+            <div class="flex justify-center gap-[100px] items-center">
+                <div class="w-[525px]">
+                    <h1 class="text-5xl font-bold leading-[60px] text-[#0F2137] mb-6">Free Customer Support to ensure what
+                        you like to
+                        expect</h1>
+                    <p class="text-lg text-[#343D48] leading-[35px] mb-6">We offer a risk-free trial period of up to two
+                        weeks. You will only have to pay if you are happy
+                        with the developer and wish to continue. If you are unsatisfied, we’ll refund payment or fix
+                        issues on our dime period customers.
+                    </p>
+                    <p class="text-[15px] leading-[34px] text-[#02073E] mb-2">
+                        If you are happy with the developer and wish to continue. If you are unsatisfied, we’ll refund
+                        payment or fix issues.
+                    </p>
+                    <div>
+                        <a href="" class="text-[16px] font-bold text-[#8D448B]">Learn more</a>
+                        <i class="fa-solid fa-chevron-right" style="color: #8D448B;"></i>
+                    </div>
+                </div>
+                <div>
+                    <img src="./Assets/Support.png" alt="">
+                </div>
+            </div>
+        </section>
+
+        <!-- Tutorial Section -->
+        <section class="bg-[#F8FAFC]">
+            <div class="max-w-7xl mx-auto pt-[57px] pb-[100px]">
+                <div class="text-center mb-[80px]">
+                    <p class="text-lg font-bold text-[#8D448B] mb-5">Quality Features</p>
+                    <h2 class="text-3xl font-bold">Tutorials that people love most</h2>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-[175px]">
+                    <!-- Tutorial-1 -->
+                    <div class="bg-white">
+                        <img src="./Assets/Tutorial-3.png" alt="">
+                        <div class="px-[30px] py-[30px]">
+                            <h3 class="text-xl font-bold text-[#0F2137] mb-6">How to work with prototype design with
+                                adobe
+                                xd featuring tools</h3>
+                            <div class="flex items-center gap-2">
+                                <img src="./Assets/Comments.png" alt="commnets">
+                                <p>22 comments</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tutorial-2 -->
+                    <div class="bg-white">
+                        <img src="./Assets/Tutorial-1.png" alt="">
+                        <div class="px-[30px] py-[30px]">
+                            <h3 class="text-xl font-bold text-[#0F2137] mb-6">Create multiple artboard by using figma
+                                prototyping development</h3>
+                            <div class="flex items-center gap-2">
+                                <img src="./Assets/Comments.png" alt="commnets">
+                                <p>15 comments</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tutorial-3 -->
+                    <div class="bg-white">
+                        <img src="./Assets/Tutorial-2.png" alt="">
+                        <div class="px-[30px] py-[30px]">
+                            <h3 class="text-xl font-bold text-[#0F2137] mb-6">Convert your web layout theming easily
+                                with sketch zeplin extension</h3>
+                            <div class="flex items-center gap-2">
+                                <img src="./Assets/Comments.png" alt="commnets">
+                                <p>18 comments</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hire Developer Section -->
+        <section class="max-w-7xl mx-auto mb-[100px] mt-[-100px]">
+            <div
+                class="relative bg-[#8D448B] rounded-2xl flex justify-around items-center py-12 gap-10 overflow-hidden">
+                <div class="absolute left-[580px] top-[20px] inset-0 z-0 bg-no-repeat bg-[url('/Assets/pattarn.png')]">
+                </div>
+                <div class="w-[550px]">
+                    <h1 class="text-4xl font-bold text-white">Hire the world’s best developers
+                        and designers around!
+                    </h1>
+                </div>
+                <div class="z-10">
+                    <a href="" class="px-[44px] py-[19px] text-[#8D448B] font-bold text-[17px] bg-white">HIRE
+                        DEVELOPERS
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="mb-12">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="./Assets/logo_footer.png" alt="Logo">
+                <p class="text-[14px] text-[#0F2137]">Copyright by 2019 Dev, Inc</p>
+            </div>
+            <div>
+                <ul class="flex items-center gap-5 cursor-pointer">
+                    <li>Home</li>
+                    <li>Advertise</li>
+                    <li>Supports</li>
+                    <li>Marketing</li>
+                    <li>FAQ</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- External Script -->
+    <script src="./Scripts/Script.js" defer></script>
+    <script src="./Scripts/DropDown.js" defer></script>
+</body>
+
+</html>
