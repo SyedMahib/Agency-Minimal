@@ -459,23 +459,27 @@
         </section>
 
     </main>
-    <footer class="mb-12">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <footer class="mb-12 px-5 sm:px-10 md:px-16">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center sm:justify-between gap-6 sm:gap-0">
             <div class="flex items-center gap-3">
-                <img src="./Assets/logo_footer.png" alt="Logo">
-                <p class="text-[14px] text-[#0F2137]">Copyright by 2019 Dev, Inc</p>
+                <img src="./Assets/logo_footer.png" alt="Logo" class="w-24 sm:w-auto" />
+                <p class="text-[12px] sm:text-[14px] text-[#0F2137] whitespace-nowrap">
+                    Copyright by 2019 Dev, Inc
+                </p>
             </div>
-            <div>
-                <ul class="flex items-center gap-5 cursor-pointer">
-                    <li>Home</li>
-                    <li>Advertise</li>
-                    <li>Supports</li>
-                    <li>Marketing</li>
-                    <li>FAQ</li>
+            <nav>
+                <ul
+                    class="flex flex-wrap justify-center sm:justify-start items-center gap-4 sm:gap-5 text-sm sm:text-base cursor-pointer">
+                    <li class="hover:text-[#8D448B] transition">Home</li>
+                    <li class="hover:text-[#8D448B] transition">Advertise</li>
+                    <li class="hover:text-[#8D448B] transition">Supports</li>
+                    <li class="hover:text-[#8D448B] transition">Marketing</li>
+                    <li class="hover:text-[#8D448B] transition">FAQ</li>
                 </ul>
-            </div>
+            </nav>
         </div>
     </footer>
+
 
 
     <!-- External Script -->
